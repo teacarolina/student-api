@@ -1,4 +1,5 @@
 <?php
+//code to insert the input from the form to the DB 
 $dsn = "mysql:host=localhost;dbname=guestbook";
 $user = "root";
 $password = "";
