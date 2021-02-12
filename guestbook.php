@@ -13,6 +13,10 @@
     -create a page with a form that has the following input name, email, message
     -use POST to post the message on the page and save it in the DB
     -list all messages on the page 
+
+    Once that is done continue with;
+    -delete entries (create a link to delete entries)
+    -modify entries (create a lin to modify entries)
 -->
     <h4>Leave a message 📑🖊️</h4>
     <form action="guestbookPost.php" method="POST">
@@ -37,7 +41,8 @@
     while($row = $stm->fetch()){
     echo $row['id'] . " " . $row['name'] . " " . $row['email'] . " " . $row['message'] . " " .
     "<a href='guestbookDelete.php?id=".$row['id']."'>DELETE</a>" . " " . 
-    "<a href='guestbookModify.php?id=".$row['id']."?message=".$row['message']."'>MODIFY</a>" . " " . "<br>";
+    "<a href='guestbookModify.php?id=".$row['id']."'>MODIFY</a>" . " " . "<br>";
+    //"<a href='guestbookModify.php?id=".$row['id']."?message=".$row['message']."'>MODIFY</a>"
     };
 ?>
 
