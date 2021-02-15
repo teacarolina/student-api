@@ -4,9 +4,13 @@
     $password = "";
     $pdo = new PDO($dsn, $user, $password);
 
-    $action = $_GET['action'];
+    //to avoid warning message that action isn't set yet from form
+    if(isset($_GET['action'])) {
+        $action = $_GET['action'];
+        }
 
-    if($action == "update") {
+    //run this if statement if action variable is set and action variable is update
+    if(isset($action) && $action == "update") {
     $sql = "UPDATE entries SET message = :message_IN WHERE entries.Id = :id_IN";
     $stm = $pdo->prepare($sql);
     $stm->bindParam(":message_IN", $_POST['message']);
