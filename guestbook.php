@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guestbook</title>
-</head>
+   </head>
 <body>
 <!--
     Guestbook! Create a guestbook with the following features;
@@ -17,6 +17,7 @@
     Once that is done continue with;
     -delete entries (create a link to delete entries)
     -modify entries (create a lin to modify entries)
+    -add login function 
 -->
     <h4>Leave a message 📑🖊️</h4>
     <form action="guestbookPost.php" method="POST">
