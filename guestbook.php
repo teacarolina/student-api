@@ -17,7 +17,8 @@
     Once that is done continue with;
     -delete entries (create a link to delete entries)
     -modify entries (create a lin to modify entries)
-    -add login function 
+    -add registration function for users
+    -add login function for users
 -->
     <h4>Leave a message 📑🖊️</h4>
     <form action="guestbookPost.php" method="POST">

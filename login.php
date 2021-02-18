@@ -1,4 +1,5 @@
 <?php
+//login to the guestbook using registered users in the DB
 $dsn = "mysql:host=localhost;dbname=guestbook";
 $user = "root";
 $password = "";

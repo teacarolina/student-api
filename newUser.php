@@ -1,10 +1,11 @@
 <?php
+//save new users into the DB 
  $dsn = "mysql:host=localhost;dbname=guestbook";
  $user = "root";
  $password = "";
  $pdo = new PDO($dsn, $user, $password);
 
- 
+
 
  $username = $_POST['username'];
  $password = $_POST['password'];

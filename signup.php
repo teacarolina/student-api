@@ -7,7 +7,7 @@
     <title>Document</title>
     </head>
 <body>
-
+    <!--Sign up form for new users at the guestbook-->
     <h4>Sign up</h4>
     <form action="newUser.php" method="POST">
     <label for="name">Enter username</label><br>

@@ -1,5 +1,5 @@
 <?php
-//delete message from DB 
+//delete messages from DB 
 $dsn = "mysql:host=localhost;dbname=guestbook";
 $user = "root";
 $password = "";

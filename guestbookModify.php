@@ -1,4 +1,5 @@
 <?php
+    //modify message in DB
     $dsn = "mysql:host=localhost;dbname=guestbook";
     $user = "root";
     $password = "";
