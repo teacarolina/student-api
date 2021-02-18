@@ -1,3 +1,25 @@
+<?php
+$dsn = "mysql:host=localhost;dbname=guestbook";
+$user = "root";
+$password = "";
+$pdo = new PDO($dsn, $user, $password);
+
+if(isset($_GET['action'])) {
+    $action = $_GET['action'];
+}
+
+if(isset($action) && $action == "access") {
+    $stm = $pdo->query("SELECT id, username, password FROM users");
+    while($row = $stm->fetch()) {
+       if($_POST['username'] == $row['username'] && $_POST['password'] == $row['password']) {
+           header("location:guestbook.php");
+    } else {
+       echo "Something went wrong";
+   }
+}
+    };
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,28 +30,12 @@
     </head>
 <body>
     <h4>Login</h4>
-    <form action="login.php" method="POST">
+    <form action="login.php?action=access" method="POST">
     <label for="name">Username</label><br>
     <input type="text" placeholder="Username" name="username"><br>
     <label for="email">Password</label><br>
     <input type="password" placeholder="Password" name="password"><br>
     <input type="submit" value="Login">
     </form>
-    
-<?php
- $dsn = "mysql:host=localhost;dbname=guestbook";
- $user = "root";
- $password = "";
- $pdo = new PDO($dsn, $user, $password);
-
- $stm = $pdo->query("SELECT id, username, password FROM users");
- while($row = $stm->fetch()) {
-    if($_POST['username'] == $row['username'] && $_POST['password'] == $row['password']) {
-        header("location:guestbook.php");
- } else {
-    echo "Something went wrong";
-}
- };
-?>
 </body>
 </html>

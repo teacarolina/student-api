@@ -4,6 +4,8 @@
  $password = "";
  $pdo = new PDO($dsn, $user, $password);
 
+ 
+
  $username = $_POST['username'];
  $password = $_POST['password'];
 
