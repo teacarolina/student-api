@@ -23,12 +23,13 @@
  $pdo = new PDO($dsn, $user, $password);
 
  $stm = $pdo->query("SELECT id, username, password FROM users");
- $row = $stm->fetch();
- if($_POST['username'] == $row['username'] && $_POST['password'] == $row['password']) {
-    header("location:guestbook.php");
-} else {
+ while($row = $stm->fetch()) {
+    if($_POST['username'] == $row['username'] && $_POST['password'] == $row['password']) {
+        header("location:guestbook.php");
+ } else {
     echo "Something went wrong";
-};
+}
+ };
 ?>
 </body>
 </html>
