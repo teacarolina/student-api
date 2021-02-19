@@ -54,6 +54,8 @@
     $userData = $stm->fetch();
     
     ?>
+
+    <!--Form to edit the already posted message-->
     <h4>Edit your message 📑🖊️</h4>
     <form action="guestbookModify.php?action=update" method="POST">
     <label for="message">Enter your message</label><br>

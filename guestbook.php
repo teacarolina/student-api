@@ -18,8 +18,10 @@
     -delete entries (create a link to delete entries)
     -modify entries (create a lin to modify entries)
     -add registration function for users
-    -add login function for users
+    -add login function for users (using sessions)
+    -add logout function for users (using sessions)
 -->
+    <!--Form for leaving a message-->
     <h4>Leave a message 📑🖊️</h4>
     <form action="guestbookPost.php" method="POST">
     <label for="name">Enter name</label><br>
@@ -31,6 +33,7 @@
     <input type="submit" value="Post message">
     </form>
 
+    <!--Below will the messages be posted-->
     <h4>Posted messages</h4> 
 <?php
     //code to post the message from the DB to the page 
@@ -44,8 +47,15 @@
     echo $row['id'] . " " . $row['name'] . " " . $row['email'] . " " . $row['message'] . " " .
     "<a href='guestbookDelete.php?id=".$row['id']."'>DELETE</a>" . " " . 
     "<a href='guestbookModify.php?id=".$row['id']."'>MODIFY</a>" . " " . "<br>";
-    //"<a href='guestbookModify.php?id=".$row['id']."?message=".$row['message']."'>MODIFY</a>"
     };
+
+    //starting session for user that logged in to guestbook
+    session_start();
+    if(isset($_SESSION['username']) && isset($_SESSION['password'])){
+        echo "<h1>Välkommen " . $_SESSION['username'] . "</h1>";
+        echo '<a href="logout.php">Log out</a>';
+        die();
+    }
 ?>
 
 </body>

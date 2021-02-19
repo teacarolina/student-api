@@ -13,7 +13,10 @@ if(isset($action) && $action == "access") {
     $stm = $pdo->query("SELECT id, username, password FROM users");
     while($row = $stm->fetch()) {
        if($_POST['username'] == $row['username'] && $_POST['password'] == $row['password']) {
-           header("location:guestbook.php");
+            session_start();
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['password'] = $_POST['password'];
+            header("location:guestbook.php");
     } else {
        echo "Something went wrong";
    }
