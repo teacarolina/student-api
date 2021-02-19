@@ -5,7 +5,11 @@ $user = "root";
 $password = "";
 $pdo = new PDO($dsn, $user, $password);
 
-$name = $_POST['name'];
+//use $_POST for name if you want to use the inputfield name
+//$name = $_POST['name'];
+//here using username from session
+session_start();
+$name = $_SESSION['username'];
 $email = $_POST['email'];
 $message = $_POST['message'];
 
