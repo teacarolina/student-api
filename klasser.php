@@ -11,6 +11,7 @@ private $price;
 private $category;
 private $articleNumber; 
 private $description; 
+private $taxes; 
 
 function set_name($name) {
     $this->name = $name;
@@ -51,6 +52,16 @@ function set_description($description) {
 function get_description() {
     return $this->description; 
 }
+
+function set_taxes($taxes) {
+    $this->taxes = $taxes; 
+}
+
+function get_taxes() {
+    $totalTaxes = $this->price*$this->taxes; 
+    $sum = $totalTaxes+$this->price;
+    return $sum; 
+}
 }
 
 //testing to set variables
@@ -60,8 +71,9 @@ $sneakers->set_price("999");
 $sneakers->set_category("Shoes");
 $sneakers->set_articleNumber("1001");
 $sneakers->set_description("White sneakers with silver details");
+$sneakers->set_taxes("0.25");
 
 //testing to get variables
 echo $sneakers->get_name() . " " . $sneakers->get_price() . " " . $sneakers->get_category() . " " . 
-$sneakers->get_articleNumber() . " " . $sneakers->get_description();
+$sneakers->get_articleNumber() . " " . $sneakers->get_description() . " " . $sneakers->get_taxes();
 ?>
