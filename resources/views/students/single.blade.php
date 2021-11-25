@@ -1,11 +1,11 @@
 @extends('base')
 @section('main')
-<div>    
-    <a style="margin: 19px;" href="{{ url('/students')}}" class="btn btn-primary">All students</a>
-</div>
 <div class="row">
-    <div class="col-sm-12">     
-        <h1 class="display-3">One Student</h1>      
+    <div class="col-sm-12">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Student information</span>
+            <a style="margin: 19px; color: white;" href="{{ url('/students')}}" class="btn btn-info">All students</a>
+        </nav>          
         <div class="col-sm-12">  
             @if(session()->get('success'))    
             <div class="alert alert-success">      
@@ -27,14 +27,14 @@
                     <td>{{$student->id}}</td>            
                     <td>{{$student->name}}</td>            
                     <td>{{$student->course}}</td>                   
-                    <td>                
-                        <a href="{{ route('students.update', $student->id) }}" class="btn btn-primary">Edit</a>            
+                    <td class="col-1">                
+                        <a href="{{ route('students.update', $student->id) }}" class="btn btn-dark">Edit</a>            
                     </td>            
-                    <td>                
+                    <td class="col-2">                
                         <form action="{{ url('api/students',$student->id)}}" method="post">                  
                             @csrf                  
                             @method('DELETE')                  
-                            <button class="btn btn-danger" type="submit">Delete</button>                
+                            <button class="btn btn-dark" type="submit">Delete</button>                
                         </form>            
                     </td>     
                 </tr> 

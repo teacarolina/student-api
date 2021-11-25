@@ -1,11 +1,11 @@
 @extends('base')
 @section('main')
-<div>    
-    <a style="margin: 19px;" href="{{ url('/')}}" class="btn btn-primary">New student</a>
-</div>
 <div class="row">
     <div class="col-sm-12">     
-        <h1 class="display-3">Students</h1>      
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">All Students</span>
+            <a style="margin: 15px; color: white;" href="{{ url('/')}}" class="btn btn-info">Add new student</a>
+        </nav>     
         <div class="col-sm-12">  
             @if(session()->get('success'))    
             <div class="alert alert-success">      
@@ -28,22 +28,22 @@
                     <td>{{$student->id}}</td>            
                     <td>{{$student->name}}</td>            
                     <td>{{$student->course}}</td>                   
-                    <td>                
-                        <a href="{{ route('students.update', $student->id) }}" class="btn btn-primary">Edit</a>            
-                    </td>            
-                    <td>                
-                        <form action="{{ url('api/students',$student->id)}}" method="post">                  
-                            @csrf                  
-                            @method('DELETE')                  
-                            <button class="btn btn-danger" type="submit">Delete</button>                
-                        </form>            
-                    </td>     
-                    <td>                
+                    <td class="col-1">                
                         <form action="{{ url('api/students',$student->id)}}" method="post">                  
                             @csrf                  
                             @method('GET')                  
-                            <button class="btn btn-primary" type="submit">Show</button>                
-                        </form>                     
+                            <button class="btn btn-dark" type="submit">Show</button>                
+                        </form>   
+                    </td>            
+                    <td class="col-1">                
+                        <form action="{{ url('api/students',$student->id)}}" method="post">                  
+                            @csrf                  
+                            @method('DELETE')                  
+                            <button class="btn btn-dark" type="submit">Delete</button>                
+                        </form>            
+                    </td>     
+                    <td class="col-2">                
+                        <a href="{{ route('students.update', $student->id) }}" class="btn btn-dark">Edit</a>            
                     </td>    
                 </tr> 
                 @endforeach       
